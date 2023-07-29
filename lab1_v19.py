@@ -4,11 +4,11 @@ N, M = (5, 5)
 arr = []
 
 
-def sum_max_items():
+def sum_min_items():
     print('')
     print('part 2')
-    max_sum = arr[0][-1]
-    print('Start max sum = ', max_sum)
+    min_sum = arr[0][-1]
+    print('Start min sum = ', min_sum)
     print('')
 
     for i in range(1, N):
@@ -17,28 +17,28 @@ def sum_max_items():
         for j in range(M - i):
             l_side += arr[i + j][j]
             r_side += arr[j][i + j]
-        if l_side > max_sum: max_sum = l_side
-        if r_side > max_sum: max_sum = r_side
+        if l_side < min_sum: min_sum = l_side
+        if r_side < min_sum: min_sum = r_side
         print('Left side ', l_side)
         print('Right side ', r_side)
 
     print('')
-    print('Max sum: ', max_sum)
+    print('Min sum: ', min_sum)
 
 
-def multiplication_positive_num():
+def sum_non_negativ_rows():
     print('part 1')
 
     for i in range(N):
-        counter = 1
+        counter = 0
         stop = True
         for j in range(M):
-            counter *= arr[i][j]
+            counter += arr[i][j]
             if arr[i][j] < 0:
                 stop = False
                 break
         if stop:
-            print('Multiplication of positive number of ', i + 1, ' row: ', counter)
+            print('Row ', i + 1, ': sum = ', counter)
         else:
             print(i + 1, ' row: there is a negative element')
 
@@ -56,10 +56,10 @@ def create_array():
     for i in range(N):
         arr.append([])
         for j in range(M):
-            arr[i].append(random.randint(0, 9))
+            arr[i].append(random.randint(-9, 9))
 
 
 create_array()
 print_array(arr)
-multiplication_positive_num()
-sum_max_items()
+sum_non_negativ_rows()
+sum_min_items()
