@@ -4,12 +4,13 @@ N, M = (5, 5)
 arr = []
 
 
-def sumMaxItems():
+def sum_max_items():
     print('')
     print('part 2')
     max_sum = arr[0][-1]
     print('Start max sum = ', max_sum)
     print('')
+
     for i in range(1, N):
         l_side = 0
         r_side = 0
@@ -20,12 +21,14 @@ def sumMaxItems():
         if r_side > max_sum: max_sum = r_side
         print('Left side ', l_side)
         print('Right side ', r_side)
+
     print('')
     print('Max sum: ', max_sum)
 
 
-def multiplicationPositiveNum():
+def multiplication_positive_num():
     print('part 1')
+
     for i in range(N):
         counter = 1
         stop = True
@@ -40,7 +43,7 @@ def multiplicationPositiveNum():
             print(i + 1, ' row: there is a negative element')
 
 
-def printArray(lst):
+def print_array(lst):
     for i in range(len(lst)):
         for j in range(len(lst[i])):
             print(f"{lst[i][j]} ", end=' ')
@@ -49,14 +52,14 @@ def printArray(lst):
     print('')
 
 
-def createArray():
+def create_array():
     for i in range(N):
         arr.append([])
         for j in range(M):
             arr[i].append(random.randint(0, 9))
 
 
-createArray()
-printArray(arr)
-multiplicationPositiveNum()
-sumMaxItems()
+create_array()
+print_array(arr)
+multiplication_positive_num()
+sum_max_items()
