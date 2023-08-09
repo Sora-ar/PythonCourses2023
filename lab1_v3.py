@@ -2,7 +2,6 @@ import random
 
 N = 4
 M = 6
-arr = []
 
 
 def length_finding():
@@ -56,13 +55,12 @@ def print_array(lst):
 
 
 def create_array():
-    for i in range(N):
-        arr.append([])
-        for j in range(M):
-            arr[i].append(random.randint(0, 9))
+    return [
+        [random.randint(0, 9) for _ in range(M)] for _ in range(N)
+    ]
 
 
-create_array()
+arr = create_array()
 print_array(arr)
 zero_search()
 length_finding()

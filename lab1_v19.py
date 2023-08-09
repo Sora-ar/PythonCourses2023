@@ -1,7 +1,6 @@
 import random
 
 N, M = (5, 5)
-arr = []
 
 
 def sum_min_items():
@@ -17,10 +16,12 @@ def sum_min_items():
         for j in range(M - i):
             l_side += arr[i + j][j]
             r_side += arr[j][i + j]
-        if l_side < min_sum: min_sum = l_side
-        if r_side < min_sum: min_sum = r_side
-        print('Left side ', l_side)
-        print('Right side ', r_side)
+        if l_side < min_sum:
+            min_sum = l_side
+        if r_side < min_sum:
+            min_sum = r_side
+        print(f'Left side {l_side}')
+        print(f'Right side {r_side}')
 
     print('')
     print('Min sum: ', min_sum)
@@ -53,13 +54,12 @@ def print_array(lst):
 
 
 def create_array():
-    for i in range(N):
-        arr.append([])
-        for j in range(M):
-            arr[i].append(random.randint(-9, 9))
+    return [
+        [random.randint(0, 9) for _ in range(M)] for _ in range(N)
+    ]
 
 
-create_array()
+arr = create_array()
 print_array(arr)
 sum_non_negativ_rows()
 sum_min_items()

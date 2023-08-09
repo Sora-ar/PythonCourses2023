@@ -1,7 +1,6 @@
 import random
 
 N, M = (5, 5)
-arr = []
 
 
 def sum_max_items():
@@ -17,8 +16,10 @@ def sum_max_items():
         for j in range(M - i):
             l_side += arr[i + j][j]
             r_side += arr[j][i + j]
-        if l_side > max_sum: max_sum = l_side
-        if r_side > max_sum: max_sum = r_side
+        if l_side > max_sum:
+            max_sum = l_side
+        if r_side > max_sum:
+            max_sum = r_side
         print('Left side ', l_side)
         print('Right side ', r_side)
 
@@ -53,13 +54,12 @@ def print_array(lst):
 
 
 def create_array():
-    for i in range(N):
-        arr.append([])
-        for j in range(M):
-            arr[i].append(random.randint(0, 9))
+    return [
+        [random.randint(0, 9) for _ in range(M)] for _ in range(N)
+    ]
 
 
-create_array()
+arr = create_array()
 print_array(arr)
 multiplication_positive_num()
 sum_max_items()
